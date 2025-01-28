@@ -7,17 +7,17 @@ void main() {
 }
 
 class Round6MemoryGame extends StatelessWidget {
+  const Round6MemoryGame({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Round 6 Memory',
-      theme: ThemeData.dark(),
+      title: 'Jogo da Memória',
+      theme: ThemeData.light(),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/records': (context) => RecordsPage(),
-        '/levels': (context) => LevelsPage(),
         '/game': (context) => GamePage(),
       },
     );
@@ -25,6 +25,8 @@ class Round6MemoryGame extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,40 +38,19 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Round 6 Memory',
+                  'Jogo da Memória',
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.pink),
+                      color: const Color.fromARGB(255, 54, 145, 248)),
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/levels');
+                    Navigator.pushNamed(context, '/game');
                   },
-                  child: Text('Modo Normal'),
+                  child: Text('Jogar'),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/levels');
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      side: BorderSide(color: Colors.pink)),
-                  child: Text('Modo Round 6'),
-                ),
-                SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/records');
-                  },
-                  child: Text(
-                    'Recordes',
-                    style: TextStyle(
-                        color: Colors.pink,
-                        decoration: TextDecoration.underline),
-                  ),
-                )
               ],
             ),
           ),
@@ -79,62 +60,9 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class RecordsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Recordes'),
-      ),
-      body: ListView(
-        children: [
-          ListTile(
-            title: Text('Modo Normal'),
-            onTap: () {},
-          ),
-          ListTile(
-            title: Text('Modo Round 6'),
-            onTap: () {},
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class LevelsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nível do Jogo'),
-      ),
-      body: GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-        itemCount: 9, // Número de níveis
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/game');
-            },
-            child: Card(
-              color: Colors.pink,
-              child: Center(
-                child: Text(
-                  '${(index + 1) * 2}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
 class GamePage extends StatefulWidget {
+  const GamePage({super.key});
+
   @override
   _GamePageState createState() => _GamePageState();
 }
