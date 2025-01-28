@@ -71,7 +71,7 @@ class _GamePageState extends State<GamePage> {
   List<String> cards = [];
   List<bool> cardFlipped = [];
   List<int> flippedIndices = [];
-  int lives = 3;
+  int lives = 5;
   late Timer flipBackTimer;
 
   @override
@@ -104,6 +104,7 @@ class _GamePageState extends State<GamePage> {
       cards = images;
       cardFlipped = List.filled(images.length, false);
       flippedIndices.clear();
+      lives = 5;
     });
   }
 
