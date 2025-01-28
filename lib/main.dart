@@ -149,14 +149,14 @@ class _GamePageState extends State<GamePage> {
               Navigator.pop(context);
               Navigator.pop(context);
             },
-            child: Text('Voltar ao Menu'),
+            child: Text('Voltar ao menu'),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
               initializeGame();
             },
-            child: Text('Tentar Novamente'),
+            child: Text('Tentar novamente'),
           ),
         ],
       ),
