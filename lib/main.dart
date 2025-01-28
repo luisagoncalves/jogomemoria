@@ -14,7 +14,7 @@ class Round6MemoryGame extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Jogo da Memória',
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
@@ -40,11 +40,11 @@ class HomePage extends StatelessWidget {
                 Text(
                   'Jogo da Memória',
                   style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 54, 145, 248)),
+                      color: const Color.fromARGB(255, 242, 245, 216)),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/game');
@@ -166,7 +166,7 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Jogo'),
+        title: Text('Jogo da Memória'),
       ),
       body: Column(
         children: [
@@ -197,11 +197,11 @@ class _GamePageState extends State<GamePage> {
                 return GestureDetector(
                   onTap: () => onCardTap(index),
                   child: Card(
-                    color: cardFlipped[index] ? Colors.white : Colors.grey[800],
+                    color: cardFlipped[index] ? const Color.fromARGB(255, 34, 27, 39) : const Color.fromARGB(255, 247, 244, 231),
                     child: Center(
                       child: Text(
                         cardFlipped[index] ? cards[index] : '',
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(fontSize: 100),
                       ),
                     ),
                   ),
